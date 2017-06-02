@@ -37,7 +37,7 @@
                     <li><a href="#gallery"> Gallery</a> </li>
                     <li><a href="#features"> Features</a> </li>
                     <li><a href="#contact"> Contact Us</a> </li>
-
+					<li><a href="#functionalies"> Other Functionalities</a> </li>
                 </ul>
             </div>
         </div>  <!--End Container-->
@@ -331,6 +331,84 @@
             </div>
         </section>
     </div>
+
+
+
+    <div class="container">
+        <section>
+            <div class="page-header" id="functionalies">
+                <h2>Other Functionalities.</h2>
+                <small>Please contact us here for other functionalities </small>
+            </div>  <!--End page header-->
+
+           <div>
+		<form name="selectForm">
+					  <p>
+						<label for="musicTypes">Choose more than one music types, <br /> then click the button below:</label>
+						<select id="musicTypes" name="musicTypes" multiple="multiple">
+						  <option selected="selected">R&B</option>
+						  <option>Jazz</option>
+						  <option>Blues</option>
+						  <option>New Age</option>
+						  <option>Classical</option>
+						  <option>Opera</option>
+						</select>
+					  </p>
+					  <p><input id="btn" type="button" value="How many are selected?" /></p>
+					</form>
+					</div>
+					
+					<script>
+					document.getElementById('btn').addEventListener('click', function() {
+					/*  alert('Number of options selected: ' + howMany(document.selectForm.musicTypes)); */
+					alert('Number of options selected: ' + howMany(document.getElementById('musicTypes')));
+					}); 
+					
+					function howMany(selectObject) {
+					  var numberSelected = 0;
+					  for (var i = 0; i < selectObject.options.length; i++) {
+						if (selectObject.options[i].selected) {
+						  numberSelected++;
+						}
+					  }
+					  return numberSelected;
+					}
+					</script>
+					
+					<div id = "dateToday"> Date : </div>
+					<button onclick="this.innerHTML=Date()">The time is?</button>
+					<script>
+						document.getElementById("dateToday").innerHTML = Date();
+					</script>
+
+					
+
+
+				<div id="demo">
+				  <h2>Let ANGULAR change this text</h2>
+				  <button type="button" onclick="loadDoc()">Change Content</button>
+				</div>
+
+				<script>
+
+					function loadDoc() {
+					  var xhttp = new XMLHttpRequest();
+					  xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+						 document.getElementById("demo").innerHTML = this.responseText;
+						}
+					  };
+					  xhttp.open("GET", "ajax_info.txt", true);
+					  xhttp.send();
+					}
+
+				</script>
+            </div>
+        </section>
+    </div>
+
+	
+	
 
 </body>
 </html>
